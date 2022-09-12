@@ -29,13 +29,14 @@
     <section class="log-in">
         <div class="container">
             <div class="logo mt-5">
-                <img src="./images/logo-wis.png" alt="">
+                <img src="./image/logo-wis.png" alt="">
             </div>
             <div class="log-in-window ">
                 
                 <div class="row">
                     <div class="col-12">
                         <div class="form__group field mt-4">
+<<<<<<< HEAD:index.php
                             <input required="" id="employee_id" name="employee_id" placeholder="Name" class="form__field" type="text" autocomplete="off">
                             <label class="form__label" for="name">Emp Id</label>
                             <?php 
@@ -45,6 +46,10 @@
                                     }
                                 }
                             ?>
+=======
+                            <input required="" placeholder="Name" class="form__field" type="text">
+                            <label class="form__label" for="name">Employee Id</label>
+>>>>>>> 97f417243b6d1ffa24abd7e524020d1850b3b873:index.html
                         </div>
                     </div>
                 </div>
