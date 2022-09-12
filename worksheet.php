@@ -1,3 +1,8 @@
+<?php
+session_start();
+include("config/db_conn.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,33 +28,31 @@
 
 <body>
     <!-- section work Details  -->
+    <form action="process/process_worksheet.php" method="POST">
     <section class="work-detail">
         <div class="container">
-            <h4 class="text-center mt-5 Emp-worksheet-heading">Today's Work Details</h4>
-
+            <h4 class="text-center mt-5 Emp-worksheet-heading"><?php echo (date("Y/m/d")); ?>'s Work Details</h4>
             <div class="work-details-sheet">
                 
                 <div class="row">
                     
                     <div class="col-6 custom-padding">Start Time
-                        <input type="time" name="time" class="form-control top-space " placeholder="" aria-label="Emp id"
-                            required>
+                        <input type="time" id="start_time" name="start_time" class="form-control top-space" required>
                     </div>
                     <div class="col-6 custom-padding">End Time
-                        <input type="time" class="form-control top-space" placeholder="Enter Your Name Here"
-                            aria-label="Emp id" required>
+                        <input type="time" id="end_time" name="end_time" class="form-control top-space" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12 custom-padding">Work Done
-                        <textarea id="workDone" class="form-control top-space" name="workDone" rows="4" cols="50"></textarea>
+                        <textarea id="work_done" class="form-control top-space" name="work_done" rows="4" cols="50"></textarea>
                     </div>
                 </div>
                 <div class="work-from-radio-btn">
                     <div class="row">
                         <div class="col-6 custom-padding">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <input class="form-check-input" type="radio" name="location" id="location1" value="work_from_home">
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     Work From Home
                                 </label>
@@ -57,8 +60,8 @@
                         </div>
                         <div class="col-6 custom-padding">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
+                                <input class="form-check-input" type="radio" name="location" id="location2" value="work_from_office">
+                                <label class="form-check-label" for="flexRadioDefault2">
                                     Work From Office
                                 </label>
                             </div>
@@ -67,12 +70,13 @@
                     </div>
                 </div>
                 <div class="worksheet-submit">
-                    <button class="btn">Submit</button>
+                    <button class="btn" type="submit">Submit</button>
                 </div>
             </div>
 
         </div>
     </section>
+    </form>
     <!-- section work Details Ends -->
 
 

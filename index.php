@@ -1,3 +1,6 @@
+<?php session_start(); ?>
+
+<?php include("config/db_conn.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,6 +25,7 @@
 </head>
 
 <body>
+    <form action="process/process_login.php" method="post">
     <section class="log-in">
         <div class="container">
             <div class="logo mt-5">
@@ -32,8 +36,15 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="form__group field mt-4">
-                            <input required="" placeholder="Name" class="form__field" type="text">
+                            <input required="" id="employee_id" name="employee_id" placeholder="Name" class="form__field" type="text" autocomplete="off">
                             <label class="form__label" for="name">Emp Id</label>
+                            <?php 
+                                if(isset($_SESSION['errors']) && $_SESSION['errors']['employee_id']){
+                                    foreach($_SESSION['errors']['employee_id'] as $msg){
+                                        echo $msg.'<br>';
+                                    }
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -41,18 +52,27 @@
                 <div class="row">
                    <div class="col-12">
                     <div class="form__group field mt-4">
-                        <input required="" placeholder="Password" class="form__field" type="password">
+                        <input required="" id="password" name="password" placeholder="Password" class="form__field" type="password" autocomplete="off">
                         <label class="form__label" for="password">Password</label>
+                        <?php 
+                                if(isset($_SESSION['errors']) && $_SESSION['errors']['password']){
+                                    foreach($_SESSION['errors']['password'] as $msg){
+                                        echo $msg.'<br>';
+                                    }
+                                }
+                            ?>
+
                     </div>
                    </div>
                 </div>
 
                 <div class="log-in-btn mt-5">
-                    <button>LOG IN</button>
+                    <button name="submit">LOG IN</button>
                 </div>
             </div>
         </div>
     </section>
+    </form>
 
 
 
