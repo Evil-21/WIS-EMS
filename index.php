@@ -45,8 +45,8 @@
                                     }
                                 }
                             ?>
-                            <input required="" placeholder="Name" class="form__field" type="text">
-                            <label class="form__label" for="name">Employee Id</label>
+                            <!-- <input required="" placeholder="Name" class="form__field" type="text">
+                            <label class="form__label" for="name">Employee Id</label> -->
                         </div>
                     </div>
                 </div>
